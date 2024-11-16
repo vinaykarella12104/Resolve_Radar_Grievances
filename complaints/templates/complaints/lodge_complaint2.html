@@ -1,0 +1,291 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lodge Complaint</title>
+    <link rel="icon" href="{% static 'logo.jpg' %}" type="image/x-icon">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-title {
+            margin-right: auto;
+            font-size: 22px;
+        }
+
+        .nav-links {
+            margin-left: 20px;
+            margin-right: 30px;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            margin-left: 10px;
+            margin-right: 20px;
+            color: #ecf0f1;
+            font-size: 22px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 250px;
+            background-color: #f5f2f2;
+            padding: 15px;
+            position: fixed;
+            height: 100%;
+            top: 60px; /* Adjusted to match the height of the fixed header */
+            left: 0;
+            transition: width 0.3s;
+            overflow-x: hidden;
+        }
+
+        .sidebar h2 {
+            font-size: 24px;
+            padding-top: 20px;
+            margin-bottom: 30px;
+            font-weight: 500;
+            color: #2C3E50;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding-left: 0px;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+            font-size: 20px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+        }
+
+        .sidebar ul li a.active,   /* Active class to highlight the selected link */
+        .sidebar ul li a:hover{ 
+         color: #2C3E50;
+            font-weight: bold;
+        }
+        
+        main {
+            margin-top: 50px;
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        main section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 100;
+        }
+
+        main section form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        main section form label {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        main section form input,
+        main section form select,
+        main section form textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        main section form button {
+            padding: 10px 20px;
+            background-color: #6db2f6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .footer {
+            background-color: #f1f1f1;
+            padding: 10px 20px;
+            text-align: center;
+            border-top: 1px solid #ccc;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            z-index: 1000;
+        }
+
+        .toggle-btn {
+            background-color: #2c3e50;
+            border: none;
+            color: #ecf0f1;
+            font-size: 18px;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        .collapsed .sidebar {
+            width: 60px;
+        }
+
+        .collapsed main {
+            margin-left: 80px;
+        }
+
+        .collapsed .sidebar h2,
+        .collapsed .sidebar ul {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        .hamburger div {
+            width: 20px;
+            height: 0.5px;
+            background-color: #ecf0f1;
+            margin: 4px 0;
+            margin-right: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #2c3e50;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 15px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+        <span class="nav-title" id="siteTitle">GRIEVANCE SYSTEM</span>
+        <div class="nav-links">
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+        <!-- Hamburger Menu for Mobile -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+        <h2>GrievanceMS</h2>
+        <ul>
+            <li><a href="{% url 'lodge_complaint' %}">Lodge Complaint</a></li>
+            <li><a href="{% url 'complaint_history' %}">Complaint History</a></li>
+            <li><a href="{% url 'profile' %}">Profile Update</a></li>
+            <li><a href="{% url 'password_reseted' %}">Password Reset</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section>
+            <h2>Add Complaint:</h2>
+            <form id="complaintForm" method="POST" action="{% url 'lodge_complaint' %}" enctype="multipart/form-data"> <!-- Ensure enctype for file upload -->
+                {% csrf_token %}
+                
+                <label for="subject">Subject*</label>
+                <input type="text" id="subject" name="subject" value="{{ form.subject.value }}" required>
+        
+                <label for="type">Type of Complaint*</label>
+                <select id="type" name="type" required>
+                    <option value="" disabled selected>-- Select --</option>
+                    <option value="Infrastructure" {% if form.type.value == "Infrastructure" %}selected{% endif %}>Infrastructure</option>
+                    <option value="Faculty" {% if form.type.value == "Faculty" %}selected{% endif %}>Faculty</option>
+                    <option value="Women Grievance" {% if form.type.value == "Women Grievance" %}selected{% endif %}>Women Grievance</option>
+                    <option value="Ragging" {% if form.type.value == "Ragging" %}selected{% endif %}>Ragging</option>
+                    <option value="Hostel" {% if form.type.value == "Hostel" %}selected{% endif %}>Hostel</option>
+                    <option value="Transport" {% if form.type.value == "Transport" %}selected{% endif %}>Transport</option>
+                    <option value="Canteen" {% if form.type.value == "Canteen" %}selected{% endif %}>Food(Canteen)</option>
+                    <option value="Other" {% if form.type.value == "Other" %}selected{% endif %}>Other</option>
+                </select>
+        
+                <label for="description">Description*</label>
+                <textarea id="description" name="description" required>{{ form.description.value }}</textarea>
+    
+                <label for="supporting_photo">Upload Photo (Optional)</label> <!-- Updated field name to match the form -->
+                <input type="file" id="supporting_photo" name="supporting_photo" accept="image/*"> <!-- Correct field name -->
+    
+                <label for="supporting_document">Upload Supporting Document (Optional)</label> <!-- Updated label for consistency -->
+                <input type="file" id="supporting_document" name="supporting_document" accept="*"> <!-- Correct field name -->
+        
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    
+    <div class="footer">
+        <p>Grievance Management Sys. All rights reserved.</p>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.body.classList.toggle('collapsed');
+        }
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
