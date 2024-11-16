@@ -61,7 +61,7 @@ cd Resolve_Radar_Grievances
 - Grievance History
 (https://github.com/user-attachments/assets/e08f18fc-b5af-4870-9496-cdc241815bb2)
 
-![Screenshot 2024-11-02 122556](https://github.com/user-attachments/assets/d7014cb2-7d15-4a27-b460-583151924a21)
+!(https://github.com/user-attachments/assets/d7014cb2-7d15-4a27-b460-583151924a21)
 ![Screenshot 2024-11-02 122539](https://github.com/user-attachments/assets/e89579bd-d4fd-4073-8716-84149caecc59)
 ![Screenshot 2024-11-02 122155](https://github.com/user-attachments/assets/f79f3798-97a3-462d-88fa-dea5fe671802)
 ![Screenshot 2024-11-02 122134](https://github.com/user-attachments/assets/4c8132c3-2746-4869-ba43-539ba56a5045)
