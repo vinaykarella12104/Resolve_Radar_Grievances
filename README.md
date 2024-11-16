@@ -21,6 +21,23 @@
 - **Database**: SQLite
 - **Development Tools**: Visual Studio Code, Git & GitHub
 
+## 📸 Screenshots
+- Application Dashboard
+!(https://github.com/user-attachments/assets/94cd920d-e8ba-4e78-b1d1-bec8b83de083)
+
+- User Dashboard
+!(https://github.com/user-attachments/assets/0fb6ddf3-d3f8-4e73-9c2d-da1f9e3e5e76)
+
+- Admin Dashboard
+!(https://github.com/user-attachments/assets/0b4c8e6c-39bf-460c-9f1d-6007e49e8fbd)
+
+- Lodge Grievance
+!(https://github.com/user-attachments/assets/125fd12c-a7ad-41d5-8d4c-72798c95ec0c)
+
+- Grievance History
+!(https://github.com/user-attachments/assets/e08f18fc-b5af-4870-9496-cdc241815bb2)
+
+
 
 ## ⚙️ Installation Guide
 
@@ -44,20 +61,4 @@ cd Resolve_Radar_Grievances
 - python manage.py runserver
 
 ### 6. Open your browser and navigate to: http://127.0.0.1:8000/
-
-## 📸 Screenshots
-- Application Dashboard
-!(https://github.com/user-attachments/assets/94cd920d-e8ba-4e78-b1d1-bec8b83de083)
-
-- User Dashboard
-!(https://github.com/user-attachments/assets/0fb6ddf3-d3f8-4e73-9c2d-da1f9e3e5e76)
-
-- Admin Dashboard
-!(https://github.com/user-attachments/assets/0b4c8e6c-39bf-460c-9f1d-6007e49e8fbd)
-
-- Lodge Grievance
-!(https://github.com/user-attachments/assets/125fd12c-a7ad-41d5-8d4c-72798c95ec0c)
-
-- Grievance History
-!(https://github.com/user-attachments/assets/e08f18fc-b5af-4870-9496-cdc241815bb2)
 
